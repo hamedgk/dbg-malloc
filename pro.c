@@ -31,8 +31,8 @@ void dbg_free(struct alloc_register_t *alloc_reg, void *to_be_freed){
 	for(int i=0; i<MAX_ALLOC_REGS; ++i){
 		if((alloc_reg+i)->allocation_address == to_be_freed){
 			free((alloc_reg+i)->allocation_address);
-			alloc_reg->is_deallocated = true;
-			printf("deacllocation %p for %s:%ld\n", alloc_reg->allocation_address, alloc_reg->file_name, alloc_reg->line);
+			(alloc_reg+i)->is_deallocated = true;
+			printf("deacllocation %p for %s:%ld\n", (alloc_reg+i)->allocation_address, (alloc_reg+i)->file_name, (alloc_reg+i)->line);
 			return;
 		}
 
@@ -53,8 +53,10 @@ int main(){
 	
 	int *handler = (int*) dbg_malloc(regs, sizeof(int)*16, __FILE__, __LINE__);
 	int *handler2 = (int*) dbg_malloc(regs, sizeof(int)*16, __FILE__, __LINE__);
+	int *handler3 = (int*) dbg_malloc(regs, sizeof(int)*16, __FILE__, __LINE__);
 	dbg_free(regs, handler);
 	dbg_free(regs, handler2);
+	dbg_free(regs, handler3);
 	not_freed(regs);	
 	return 0;
 }
