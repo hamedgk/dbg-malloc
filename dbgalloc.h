@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define MAX_ALLOC_REGS 256
 
 struct alloc_register_t{
 	void  *allocation_address;
