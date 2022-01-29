@@ -1,5 +1,5 @@
-#ifndef __PRO_H
-#define __PRO_H
+#ifndef DBGALLOC_H__ 
+#define DBGALLOC_H__ 
 
 #include <stdio.h>
 #include <stdlib.h>
