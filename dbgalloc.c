@@ -13,12 +13,13 @@ void *dbg_malloc(struct alloc_register_t *alloc_reg, size_t size, char const *fi
 }
 
 void dbg_free(struct alloc_register_t *alloc_reg, void * const to_be_freed){
-	for(int i=0; i<reg_counter; ++i)
+	for(int i=0; i<reg_counter; ++i){
 		if((alloc_reg+i)->allocation_address == to_be_freed){
 			free((alloc_reg+i)->allocation_address);
 			(alloc_reg+i)->is_deallocated = true;
 			return;
 		}
+	}
 }
 
 void not_freed(struct alloc_register_t *alloc_reg){
