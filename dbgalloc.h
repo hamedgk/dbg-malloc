@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define ALLOC_INFO __FILE__,__LINE__
 
 struct alloc_register_t{
 	void  *allocation_address;
