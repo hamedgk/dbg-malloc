@@ -12,7 +12,7 @@ void *dbg_malloc(struct alloc_register_t *alloc_reg, size_t size, char const *fi
 	return alloc_ptr;
 }
 
-void dbg_free(struct alloc_register_t *alloc_reg, void * const to_be_freed){
+void dbg_free(struct alloc_register_t * const alloc_reg, void const * const to_be_freed){
 	for(int i=0; i<reg_counter; ++i){
 		if((alloc_reg+i)->allocation_address == to_be_freed){
 			free((alloc_reg+i)->allocation_address);
@@ -22,7 +22,7 @@ void dbg_free(struct alloc_register_t *alloc_reg, void * const to_be_freed){
 	}
 }
 
-void not_freed(struct alloc_register_t *alloc_reg){
+void not_freed(struct alloc_register_t * const alloc_reg){
 	for(int i=0; i<reg_counter; ++i){
 		if((alloc_reg+i)->is_deallocated == false){
 			printf("NOT FREED %p at %s:%ld\n", (alloc_reg+i)->allocation_address, (alloc_reg+i)->file_name
