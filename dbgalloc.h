@@ -16,6 +16,7 @@ struct alloc_register_t{
 
 static size_t reg_counter = 0;
 
+#define init_allocation_registers(allocation_register_count) struct alloc_register_t *regs = (struct alloc_register_t*) malloc(sizeof(struct alloc_register_t) * allocation_register_count)
 
 void *dbg_malloc(struct alloc_register_t *alloc_reg, size_t size, char const *file, size_t const line);
 
@@ -27,5 +28,6 @@ void dbg_free(struct alloc_register_t * const alloc_reg, void const * const to_b
 
 void not_freed(struct alloc_register_t * const alloc_reg);
 
+#define not_freed_macro() not_freed(regs)
 
 #endif
