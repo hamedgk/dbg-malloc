@@ -1,5 +1,6 @@
 compiler=gcc
 cflags=-Wall
+prefix ?= /usr/local
 
 
 all: dbgalloc.o dbgalloc.so dbgalloc.a
@@ -14,9 +15,13 @@ dbgalloc.a: dbgalloc.o
 	ar -rc lib$@ $^
 
 install: dbgalloc.a dbgalloc.so
-	install -c libdbgalloc.a /usr/local/lib
-	install -c libdbgalloc.so /usr/local/lib
-	install -c dbgalloc.h /usr/local/include
+	mkdir -p $(prefix)/lib $(prefix)/include
+	install -c libdbgalloc.a $(prefix)/lib
+	install -c libdbgalloc.so $(prefix)/lib
+	install -c dbgalloc.h $(prefix)/include
+
+uninstall:
+	rm -f $(prefix)/lib/libdbgalloc.a $(prefix)/lib/libdbgalloc.so $(prefix)/include/dbgalloc.h
 
 
 clean:
