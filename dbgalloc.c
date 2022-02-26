@@ -31,3 +31,10 @@ void not_freed(struct alloc_register_t * const alloc_reg){
 	}
 }
 
+void invoke_callback(struct alloc_register_t *alloc_reg, void (*callback)(struct alloc_register_t*)){
+	for(int i=0; i<reg_counter; ++i){
+		if((alloc_reg+i)->is_deallocated == false){
+			callback(alloc_reg+i);
+		}
+	}
+}
