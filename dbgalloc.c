@@ -38,3 +38,19 @@ void invoke_callback(struct alloc_register_t *alloc_reg, void (*callback)(struct
 		}
 	}
 }
+
+
+#ifdef WITH_LOGGING
+int logger(char const *path, struct alloc_register_t *alloc_reg){
+	FILE *fd = fopen(path, "w");
+	if(!fd) return 0;
+	for(int i=0; i<reg_counter; ++i){
+		if((alloc_reg+i)->is_deallocated == false){
+			fprintf(fd, "NOT FREED %p at %s:%ld\n", (alloc_reg+i)->allocation_address, (alloc_reg+i)->file_name
+			, (alloc_reg+i)->line);
+		}
+	}
+	fclose(fd);
+	return 1;
+}
+#endif

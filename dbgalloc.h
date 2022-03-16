@@ -34,4 +34,7 @@ void invoke_callback(struct alloc_register_t *alloc_reg, void (*callback) (struc
 
 #define invoke_callback_macro(callback) invoke_callback(regs, callback)
 
+int logger(char const *path, struct alloc_register_t *alloc_reg);
+#define logger_macro(path) logger(path, regs)
+
 #endif
