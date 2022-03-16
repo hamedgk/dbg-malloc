@@ -50,6 +50,7 @@ int logger(char const *path, struct alloc_register_t *alloc_reg){
 			, (alloc_reg+i)->line);
 		}
 	}
+	fclose(fd);
 	return 1;
 }
 #endif
