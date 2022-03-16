@@ -1,5 +1,5 @@
 compiler=gcc
-cflags=-Wall
+cflags=-Wall $(cmacros)
 prefix ?= /usr/local
 
 
