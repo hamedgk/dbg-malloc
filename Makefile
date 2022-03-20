@@ -21,8 +21,8 @@ install: dbgalloc.a dbgalloc.so
 	install -c dbgalloc.h $(prefix)/include
 
 uninstall:
-	rm -f $(prefix)/lib/libdbgalloc.a $(prefix)/lib/libdbgalloc.so $(prefix)/include/dbgalloc.h
+	rm -fv $(prefix)/lib/libdbgalloc.a $(prefix)/lib/libdbgalloc.so $(prefix)/include/dbgalloc.h
 
 
 clean:
-	rm -f *.o *.so *.a
+	rm -fv *.o *.so *.a
