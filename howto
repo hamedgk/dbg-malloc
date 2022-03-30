@@ -1,0 +1,6 @@
+#for compile with logging feature
+	make cmacros="-D WITH_LOGGING"
+	make install cmacros="-D WITH_LOGGING"
+#without logging feature
+	make
+	make install
