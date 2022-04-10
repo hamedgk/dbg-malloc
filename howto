@@ -1,6 +1,12 @@
 #for compile with logging feature
+	#compile
 	make cmacros="-D WITH_LOGGING"
-	make install cmacros="-D WITH_LOGGING"
+	#install
+	sudo make install cmacros="-D WITH_LOGGING"
+
+
 #without logging feature
+	#compile
 	make
-	make install
+	#install
+	sudo make install
