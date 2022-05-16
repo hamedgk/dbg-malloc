@@ -3,13 +3,17 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+#ifndef FILE_SIZE
+#define FILE_SIZE 32
+#endif
+
 struct alloc_register_node;
 
 struct alloc_register_t{
 	void  *allocation_address;
 	size_t line;
 	bool   is_deallocated;
-	char   file_name[32];
+	char   file_name[FILE_SIZE];
 };
 
 
