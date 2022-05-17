@@ -5,8 +5,8 @@
 #include "dbgalloc.h"
 
 
-void callback(struct alloc_register_t *reg){
-    printf("%s\n", reg->file_name);
+void callback(struct alloc_reggetster_t *reg){
+    printf("callback gets called and prints filename: %s\n", reg->file_name);
 }
 
 
@@ -30,6 +30,6 @@ int main(){
 
 ## Output
 ```text
-main.c
+callback gets called and prints filename: main.c
 NOT FREED 0x55cc0df942a0 at main.c:15
 ```
