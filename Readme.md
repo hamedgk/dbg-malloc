@@ -33,3 +33,14 @@ int main(){
 callback gets called and prints filename: main.c
 NOT FREED 0x55cc0df942a0 at main.c:15
 ```
+
+## Install
+to build the library:
+```bash
+make
+```
+
+to install:
+```bash
+sudo make install
+```
