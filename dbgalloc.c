@@ -37,7 +37,7 @@ void not_freed(struct alloc_register_node *alloc_reg){
 	struct alloc_register_node *current = alloc_reg;
 	while(current){
 		if(current->data.is_deallocated == false){
-			printf("NOT FREED " GREEN"%p" RESET" in %s:%ld\n", current->data.allocation_address, current->data.file_name
+			printf("NOT FREED " GREEN"%p" RESET" at %s:%ld\n", current->data.allocation_address, current->data.file_name
 			, current->data.line);
 		}
 		current = current->next;	
