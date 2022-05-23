@@ -24,9 +24,9 @@ void *dbg_malloc(struct alloc_register_node **alloc_reg, size_t size, char const
 
 #define DBGALLOC(size) dbg_malloc(&regs, size, __FILE__, __LINE__)
 
-void dbg_free(struct alloc_register_node *alloc_reg, void const * const to_be_freed);
+struct alloc_register_node *dbg_free(struct alloc_register_node *alloc_reg, void const * const to_be_freed);
 
-#define DBGFREE(ptr_to_be_freed) dbg_free(regs, ptr_to_be_freed)
+#define DBGFREE(ptr_to_be_freed) regs = dbg_free(regs, ptr_to_be_freed)
 
 void not_freed(struct alloc_register_node *alloc_reg);
 
